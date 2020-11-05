@@ -21,6 +21,7 @@ func smoker(componentsNeeded *sync.Mutex, name string) {
 		isSmoking.Lock()
 
 		Println(name + " is making new cigarette...")
+		// Скручивание сигареты
 		makeCigarette()
 		Println(name + " make his cigarette (" + strconv.Itoa(makingTime) + " ms)")
 
@@ -28,6 +29,7 @@ func smoker(componentsNeeded *sync.Mutex, name string) {
 		emptyTable.Unlock()
 
 		Println(name + " is smoking cigarette...")
+		// Курение сигареты
 		smokeCigarette()
 		Println(name + " smoked his cigarette (" + strconv.Itoa(smokeTime) + " ms)")
 
