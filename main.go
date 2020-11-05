@@ -21,6 +21,8 @@ const (
 var (
 	// Мьютекс, отвечающий за заполненность стола бармена
 	emptyTable        = &sync.Mutex{}
+	// Мьютекс, указывающий на то, что кто-то сейчас курит
+	isSmoking        = &sync.Mutex{}
 	// Мьютексы, указывающие на выложенные компоненты
 	tobaccoAndMatches = &sync.Mutex{}
 	paperAndMatches   = &sync.Mutex{}

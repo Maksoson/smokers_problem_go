@@ -17,6 +17,8 @@ func smoker(componentsNeeded *sync.Mutex, name string) {
 	for {
 		// Блокируем мьютекс по выложенным компонентам
 		componentsNeeded.Lock()
+		// Процесс курения начинается
+		isSmoking.Lock()
 
 		Println(name + " is making new cigarette...")
 		makeCigarette()
@@ -28,6 +30,9 @@ func smoker(componentsNeeded *sync.Mutex, name string) {
 		Println(name + " is smoking cigarette...")
 		smokeCigarette()
 		Println(name + " smoked his cigarette (" + strconv.Itoa(smokeTime) + " ms)")
+
+		// Курильщик докурил сигарету
+		isSmoking.Unlock()
 	}
 
 	// Поток выполнил работу
