@@ -18,21 +18,21 @@ func barman() {
 
 		smoker := rand.Intn(3) + 1
 		if smoker == 1 {				// Курить будет первый курильщик
-			Println(barmanName + " is now collecting tobacco and matches (for first smoker)...")
+			Println(barmanName + " is now collecting tobacco and matches (for the first smoker)...")
 			collectionOfComponents()
 			Println(barmanName + " laid out the tobacco and matches (" + strconv.Itoa(collectingTime) + " ms)")
 
 			// На столе табак и спички
 			tobaccoAndMatches.Unlock()
 		} else if smoker == 2 {			// Курить будет второй курильщик
-			Println(barmanName + " is now collecting paper and matches (for second smoker)...")
+			Println(barmanName + " is now collecting paper and matches (for the second smoker)...")
 			collectionOfComponents()
 			Println(barmanName + " laid out the paper and matches (" + strconv.Itoa(collectingTime) + " ms)")
 
 			// На столе бумага и спички
 			paperAndMatches.Unlock()
 		} else if smoker == 3 {			// Курить будет третий курильщик
-			Println(barmanName + " is now collecting tobacco and paper (for third smoker)...")
+			Println(barmanName + " is now collecting tobacco and paper (for the third smoker)...")
 			collectionOfComponents()
 			Println(barmanName + " laid out the tobacco and paper (" + strconv.Itoa(collectingTime) + " ms)")
 
