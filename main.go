@@ -22,13 +22,13 @@ var (
 	// Мьютекс, отвечающий за заполненность стола бармена
 	emptyTable        = &sync.Mutex{}
 	// Мьютекс, указывающий на то, что кто-то сейчас курит
-	isSmoking        = &sync.Mutex{}
+	isSmoking         = &sync.Mutex{}
 	// Мьютексы, указывающие на выложенные компоненты
 	tobaccoAndMatches = &sync.Mutex{}
 	paperAndMatches   = &sync.Mutex{}
 	tobaccoAndPaper   = &sync.Mutex{}
 	// Используется для определения группы горутин
-	wg                = &sync.WaitGroup{}
+	waitGroup         = &sync.WaitGroup{}
 )
 
 func main() {
@@ -38,7 +38,7 @@ func main() {
 	tobaccoAndPaper.Lock()
 
 	// Указываем количество потоков в группе
-	wg.Add(4)
+	waitGroup.Add(4)
 
 	// Запускаем потоки
 	go barman()
@@ -47,5 +47,5 @@ func main() {
 	go smoker(tobaccoAndPaper, "\"Mike (the third smoker)\"")
 
 	// Ожидаем завершения работы всех потоков
-	wg.Wait()
+	waitGroup.Wait()
 }

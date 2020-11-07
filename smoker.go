@@ -38,7 +38,7 @@ func smoker(componentsNeeded *sync.Mutex, name string) {
 	}
 
 	// Поток выполнил работу
-	wg.Done()
+	waitGroup.Done()
 }
 
 // Ожидание скручивания сигареты
